@@ -1,2 +1,5 @@
 # VSCode Settings
 .vscode
+
+# Python generated files
+__pycache__
