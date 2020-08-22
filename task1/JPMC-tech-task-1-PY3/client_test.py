@@ -27,10 +27,25 @@ class ClientTest(unittest.TestCase):
         price_b = 118
         self.assertEqual(getRatio(price_a, price_b), (price_a/price_b))
 
-    def test_getRatio_calculateWhenPriceBIsZero(self):
+    def test_getRatio_calculateWhenPriceBEqualsZero(self):
         price_a = 120
         price_b = 0
         self.assertEqual(getRatio(price_a, price_b), "Stock DEF has a price of zero")
+ 
+    def test_getRatio_calculateWhenPriceAEqualsZero(self):
+        price_a = 0
+        price_b = 118
+        self.assertEqual(getRatio(price_a, price_b), 0)
+ 
+    def test_getRatio_calculateWhenRatioGreaterThanOne(self):
+        price_a = 120
+        price_b = 118
+        self.assertGreater(getRatio(price_a, price_b), 1)
+
+    def test_getRatio_calculateWhenRatioLessThanOne(self):
+        price_a = 118
+        price_b = 120
+        self.assertLess(getRatio(price_a, price_b), 1)
 
 
 if __name__ == '__main__':
